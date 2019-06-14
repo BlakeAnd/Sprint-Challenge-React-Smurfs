@@ -41,7 +41,7 @@ delete - delete
 
 - [ ] Mention three tools we can use to make AJAX requests.
 
-axios?..
+axios, Fetch API, jQuery $.ajax
 
 ## Project Set Up
 

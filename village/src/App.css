@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background: rgb(236, 219, 182);
 }
 
 .Smurf{
@@ -11,4 +10,7 @@
 nav{
   display: flex;
   justify-content: space-around;
+}
+form{
+  margin: 60px;
 }
