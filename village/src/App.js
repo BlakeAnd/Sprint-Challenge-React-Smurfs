@@ -38,6 +38,7 @@ class App extends Component {
         this.setState({
           smurfs: res.data
         });
+        this.props.history.push("/");
       })
       .catch(err => {
         console.log(err);
@@ -56,6 +57,7 @@ class App extends Component {
         path="/"
         render={props =>(
           <Smurfs 
+          {...props}
           smurfs={this.state.smurfs} 
           />
         )}
@@ -65,6 +67,7 @@ class App extends Component {
         path="/smurf-form"
         render={props =>(
           <SmurfForm 
+          {...props}
           addSmurf={this.addSmurf}
           />
         )}
