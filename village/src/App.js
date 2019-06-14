@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -27,11 +28,32 @@ class App extends Component {
   }
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  addSmurf = (e, smurf) => {
+    e.preventDefault();
+    axios
+      .post('http://localhost:3333/smurfs', smurf)
+      .then(res => {
+        this.setState({
+          display: res.data,
+          smurfs: res.data
+        });
+        //this.props.history.push("/");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <SmurfForm 
+        addSmurf={this.addSmurf}
+        />
+        <Smurfs 
+        smurfs={this.state.smurfs} 
+        />
       </div>
     );
   }
