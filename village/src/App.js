@@ -36,10 +36,8 @@ class App extends Component {
       .post('http://localhost:3333/smurfs', smurf)
       .then(res => {
         this.setState({
-          display: res.data,
           smurfs: res.data
         });
-        //this.props.history.push("/");
       })
       .catch(err => {
         console.log(err);
